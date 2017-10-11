@@ -1,8 +1,6 @@
 import React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, StatusBar, StyleSheet, Text, View } from 'react-native';
 import { Permissions, Notifications } from 'expo';
-
-const PUSH_ENDPOINT = 'https://your-server.com/users/push-token';
 
 async function registerForPushNotificationsAsync() {
   const { status: existingStatus } = await Permissions.getAsync(
@@ -54,6 +52,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <StatusBar barStyle="dark-content" />
         <Button
           onPress={registerForPushNotificationsAsync}
           title="Console Log Device Token"
